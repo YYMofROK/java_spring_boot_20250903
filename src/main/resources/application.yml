@@ -4,7 +4,7 @@ spring:
 
 
   datasource:
-    # MariaDB 설정
+    # MariaDB 설정 1111
     mariadb:
       driver-class-name: org.mariadb.jdbc.Driver
       jdbc-url: jdbc:mariadb://{MARIADB_HOST}:{MARIADB_PORT}/{MARIADB_DB_NAME}
