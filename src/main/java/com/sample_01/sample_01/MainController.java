@@ -11,12 +11,12 @@ public class MainController {
 
     /**
      * 루트 URL ("/") 요청을 처리합니다.
-     * @return "main_dashboard_page" 문자열을 반환하여 templates/main_dashboard_page.html 파일을 렌더링하도록 지시합니다.
+     * @return "main_dashboard_page" 문자열을 반환하여 templates/main_dashboard.html 파일을 렌더링하도록 지시합니다.
      */
     @GetMapping("/")
     public String root()
     {
 
-        return "main_dashboard_page";
+        return "main_dashboard";
     }
 }
