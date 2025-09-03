@@ -1,5 +1,8 @@
 spring:
 
+
+
+
   datasource:
     # MariaDB 설정
     mariadb:
