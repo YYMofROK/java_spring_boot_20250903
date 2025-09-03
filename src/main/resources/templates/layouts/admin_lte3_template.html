@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" th:fragment="layout (pageTitle, content, pageScripts)">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 캐시 방지 메타 태그 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title th:replace="${pageTitle}">AdminLTE</title>
+
+    <!-- 'static' 폴더 기준으로 경로가 시작되어야 합니다. -->
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
+
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" th:href="@{/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+
+
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- 'templates' 폴더 기준으로 경로가 시작됩니다. -->
+    <nav th:replace="~{fragments/HeaderFragment :: headerFragment}"></nav>
+    <aside th:replace="~{fragments/SidebarFragment :: sidebarFragment}"></aside>
+
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid" style="padding-top: 1rem;">
+                <div th:replace="${content}"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer th:replace="~{fragments/FooterFragment :: footerFragment}"></footer>
+</div>
+
+<!-- JS 경로들도 'static' 폴더 기준입니다. -->
+<!-- jQuery -->
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- overlayScrollbars -->
+<script th:src="@{/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
+
+
+
+
+<th:block th:replace="${pageScripts}"></th:block>
+
+</body>
+</html>
