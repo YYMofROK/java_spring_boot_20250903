@@ -3,6 +3,7 @@ package com.sample_01.sample_01.mapper.mariadb;
 import com.sample_01.sample_01.model.ZzimcarBooking;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ZzimcarBookingMapper {
@@ -11,4 +12,17 @@ public interface ZzimcarBookingMapper {
      * @return ZzimcarBooking 객체 리스트
      */
     List<ZzimcarBooking> findLatestBookings();
+
+    /**
+     * 페이징 처리를 위해 모든 예약 건수를 조회합니다.
+     * @return 총 예약 건수
+     */
+    int countBookings();
+
+    /**
+     * 페이징 처리된 예약 목록을 조회합니다.
+     * @param params 페이징 파라미터 (offset, pageSize)
+     * @return ZzimcarBooking 객체 리스트
+     */
+    List<ZzimcarBooking> findBookings(Map<String, Object> params);
 }

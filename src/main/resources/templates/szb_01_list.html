@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/layout_tpl_01 :: layout(~{::title}, ~{::section}, ~{::script})}">
+<head>
+    <!-- 1. layout에 전달할 페이지 타이틀 -->
+    <title>메인 대시보드</title>
+</head>
+<body>
+    <!-- 2. layout에 전달할 실제 콘텐츠 -->
+    <section>
+
+        <style>
+
+            .table > tbody > tr {
+                height: 30px;
+            }
+            .table > tbody > tr > td {
+                padding-top: 0.0rem;    /* 위쪽 여백 (원하는 크기로 조절) */
+                padding-bottom: 0.0rem; /* 아래쪽 여백 (원하는 크기로 조절) */
+                vertical-align: middle;
+            }
+
+        </style>
+
+
+        <div class="container-fluid mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">최근 예약 목록 (Recent Bookings)</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th> szb_01_pk                                       </th>
+                            <th> szb_01_GDS_booking_pid                          </th>
+                            <th> szb_01_GDS_booking_no                           </th>
+                            <th> szb_01_GDS_booking_status_last                  </th>
+                            <th> szb_01_GDS_booking_reg_process                  </th>
+                            <th> szb_01_GDS_booking_reg_at                       </th>
+                            <th> szb_01_GDS_booking_cancel_process               </th>
+                            <th> szb_01_GDS_booking_cancel_at                    </th>
+                            <th> szb_01_GDS_booking_retail_sales_method          </th>
+                            <th> szb_01_GDS_retailer_pid                         </th>
+                            <th> szb_01_GDS_retailer_name                        </th>
+                            <th> szb_01_GDS_retailer_booking_no                  </th>
+                            <th> szb_01_GDS_booking_pick_at                      </th>
+                            <th> szb_01_GDS_booking_drop_at                      </th>
+                            <th> szb_01_GDS_pre_paid_currency_pid                </th>
+                            <th> szb_01_GDS_pre_paid_currency_code               </th>
+                            <th> szb_01_GDS_onsite_paid_currency_code            </th>
+                            <th> szb_01_GDS_booking_payment_exchange_rate        </th>
+                            <th> szb_01_GDS_booking_car_nm_selling_price         </th>
+                            <th> szb_01_GDS_booking_insurance_nm_selling_price   </th>
+                            <th> szb_01_GDS_booking_price_delivery_pick          </th>
+                            <th> szb_01_GDS_booking_price_delivery_drop          </th>
+                            <th> szb_01_GDS_booking_price_total                  </th>
+                            <th> szb_01_GDS_booking_price_deposit                </th>
+                            <th> szb_01_GDS_booking_price_onsite                 </th>
+                            <th> szb_01_GDS_booking_price_cancel                 </th>
+                            <th> szb_01_GDS_booking_car_model_name               </th>
+                            <th> szb_01_GDS_booking_car_supplier_name            </th>
+                            <th> szb_01_GDS_booking_car_supplier_nation          </th>
+                            <th> szb_01_GDS_booking_car_supplier_area            </th>
+                            <th> szb_01_GDS_booker_name                          </th>
+                            <th> szb_01_GDS_booker_first_name                    </th>
+                            <th> szb_01_GDS_booker_mid_name                      </th>
+                            <th> szb_01_GDS_booker_last_name                     </th>
+                            <th> szb_01_GDS_booker_email                         </th>
+                            <th> szb_01_GDS_booker_country_code                  </th>
+                            <th> szb_01_GDS_booker_contact                       </th>
+                            <th> szb_01_GDS_driver_name                          </th>
+                            <th> szb_01_GDS_driver_first_name                    </th>
+                            <th> szb_01_GDS_driver_mid_name                      </th>
+                            <th> szb_01_GDS_driver_last_name                     </th>
+                            <th> szb_01_GDS_driver_country_code                  </th>
+                            <th> szb_01_GDS_driver_contact                       </th>
+                            <th> szb_01_GDS_driver_email                         </th>
+                            <th> szb_01_GDS_driver_birth                         </th>
+                            <th> szb_01_GDS_paid_amount                          </th>
+                            <th> szb_01_GDS_unpaid_amount                        </th>
+                            <th> szb_01_GDS_data_source_json                     </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${bookings == null or bookings.empty}">
+                            <td colspan="48" class="text-center">조회된 데이터가 없습니다.</td>
+                        </tr>
+                        <tr th:each="booking : ${bookings}">
+                            <td th:text="${booking.szb_01_pk}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_pid}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_no}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_status_last}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_reg_process}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_reg_at}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_cancel_process}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_cancel_at}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_retail_sales_method}"></td>
+                            <td th:text="${booking.szb_01_GDS_retailer_pid}"></td>
+                            <td th:text="${booking.szb_01_GDS_retailer_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_retailer_booking_no}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_pick_at}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_drop_at}"></td>
+                            <td th:text="${booking.szb_01_GDS_pre_paid_currency_pid}"></td>
+                            <td th:text="${booking.szb_01_GDS_pre_paid_currency_code}"></td>
+                            <td th:text="${booking.szb_01_GDS_onsite_paid_currency_code}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_payment_exchange_rate}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_car_nm_selling_price}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_insurance_nm_selling_price}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_price_delivery_pick}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_price_delivery_drop}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_price_total}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_price_deposit}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_price_onsite}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_price_cancel}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_car_model_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_car_supplier_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_car_supplier_nation}"></td>
+                            <td th:text="${booking.szb_01_GDS_booking_car_supplier_area}"></td>
+                            <td th:text="${booking.szb_01_GDS_booker_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_booker_first_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_booker_mid_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_booker_last_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_booker_email}"></td>
+                            <td th:text="${booking.szb_01_GDS_booker_country_code}"></td>
+                            <td th:text="${booking.szb_01_GDS_booker_contact}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_first_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_mid_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_last_name}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_country_code}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_contact}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_email}"></td>
+                            <td th:text="${booking.szb_01_GDS_driver_birth}"></td>
+                            <td th:text="${booking.szb_01_GDS_paid_amount}"></td>
+                            <td th:text="${booking.szb_01_GDS_unpaid_amount}"></td>
+                            <td th:text="${booking.szb_01_GDS_data_source_json}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        <!-- 이전 버튼 -->
+                        <li class="page-item" th:classappend="${currentPage == 1} ? 'disabled'">
+                            <a class="page-link" th:href="@{/szb_01_list(page=${currentPage - 1})}">&laquo;</a>
+                        </li>
+
+                        <!-- 페이지 번호 -->
+                        <li class="page-item" th:each="pageNumber : ${#numbers.sequence(startPage, endPage)}" th:if="${totalPages > 0}" th:classappend="${pageNumber == currentPage} ? 'active'">
+                            <a class="page-link" th:href="@{/szb_01_list(page=${pageNumber})}" th:text="${pageNumber}">1</a>
+                        </li>
+
+                        <!-- 다음 버튼 -->
+                        <li class="page-item" th:classappend="${currentPage == totalPages or totalPages == 0} ? 'disabled'">
+                            <a class="page-link" th:href="@{/szb_01_list(page=${currentPage + 1})}">&raquo;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+<script>
+    let loopCnt = 0;
+    let limit_loopCnt = 5;
+    for(loopCnt; limit_loopCnt > loopCnt; loopCnt++)
+    {
+        console.log( loopCnt + "_자바스크립트테스트");
+    }
+</script>
+
+
+</html>
