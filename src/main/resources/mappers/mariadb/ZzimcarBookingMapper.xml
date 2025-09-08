@@ -2,13 +2,56 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sample_01.sample_01.mapper.mariadb.ZzimcarBookingMapper">
 
-    <!-- DB 컬럼(snake_case)과 DTO 필드(camelCase)를 매핑합니다. -->
+    <!-- DB 컬럼과 Model 필드를 명시적으로 매핑합니다. -->
     <resultMap id="zzimcarBookingResultMap" type="com.sample_01.sample_01.model.ZzimcarBooking">
         <id property="szb_01_pk" column="szb_01_pk"/>
         <result property="szb_01_GDS_booking_pid" column="szb_01_GDS_booking_pid"/>
         <result property="szb_01_GDS_booking_no" column="szb_01_GDS_booking_no"/>
         <result property="szb_01_GDS_booking_status_last" column="szb_01_GDS_booking_status_last"/>
-        <!-- ※ 여기에 실제 컬럼과 필드를 추가로 매핑하세요. -->
+        <result property="szb_01_GDS_booking_reg_process" column="szb_01_GDS_booking_reg_process"/>
+        <result property="szb_01_GDS_booking_reg_at" column="szb_01_GDS_booking_reg_at"/>
+        <result property="szb_01_GDS_booking_cancel_process" column="szb_01_GDS_booking_cancel_process"/>
+        <result property="szb_01_GDS_booking_cancel_at" column="szb_01_GDS_booking_cancel_at"/>
+        <result property="szb_01_GDS_booking_retail_sales_method" column="szb_01_GDS_booking_retail_sales_method"/>
+        <result property="szb_01_GDS_retailer_pid" column="szb_01_GDS_retailer_pid"/>
+        <result property="szb_01_GDS_retailer_name" column="szb_01_GDS_retailer_name"/>
+        <result property="szb_01_GDS_retailer_booking_no" column="szb_01_GDS_retailer_booking_no"/>
+        <result property="szb_01_GDS_booking_pick_at" column="szb_01_GDS_booking_pick_at"/>
+        <result property="szb_01_GDS_booking_drop_at" column="szb_01_GDS_booking_drop_at"/>
+        <result property="szb_01_GDS_pre_paid_currency_pid" column="szb_01_GDS_pre_paid_currency_pid"/>
+        <result property="szb_01_GDS_pre_paid_currency_code" column="szb_01_GDS_pre_paid_currency_code"/>
+        <result property="szb_01_GDS_onsite_paid_currency_code" column="szb_01_GDS_onsite_paid_currency_code"/>
+        <result property="szb_01_GDS_booking_payment_exchange_rate" column="szb_01_GDS_booking_payment_exchange_rate"/>
+        <result property="szb_01_GDS_booking_car_nm_selling_price" column="szb_01_GDS_booking_car_nm_selling_price"/>
+        <result property="szb_01_GDS_booking_insurance_nm_selling_price" column="szb_01_GDS_booking_insurance_nm_selling_price"/>
+        <result property="szb_01_GDS_booking_price_delivery_pick" column="szb_01_GDS_booking_price_delivery_pick"/>
+        <result property="szb_01_GDS_booking_price_delivery_drop" column="szb_01_GDS_booking_price_delivery_drop"/>
+        <result property="szb_01_GDS_booking_price_total" column="szb_01_GDS_booking_price_total"/>
+        <result property="szb_01_GDS_booking_price_deposit" column="szb_01_GDS_booking_price_deposit"/>
+        <result property="szb_01_GDS_booking_price_onsite" column="szb_01_GDS_booking_price_onsite"/>
+        <result property="szb_01_GDS_booking_price_cancel" column="szb_01_GDS_booking_price_cancel"/>
+        <result property="szb_01_GDS_booking_car_model_name" column="szb_01_GDS_booking_car_model_name"/>
+        <result property="szb_01_GDS_booking_car_supplier_name" column="szb_01_GDS_booking_car_supplier_name"/>
+        <result property="szb_01_GDS_booking_car_supplier_nation" column="szb_01_GDS_booking_car_supplier_nation"/>
+        <result property="szb_01_GDS_booking_car_supplier_area" column="szb_01_GDS_booking_car_supplier_area"/>
+        <result property="szb_01_GDS_booker_name" column="szb_01_GDS_booker_name"/>
+        <result property="szb_01_GDS_booker_first_name" column="szb_01_GDS_booker_first_name"/>
+        <result property="szb_01_GDS_booker_mid_name" column="szb_01_GDS_booker_mid_name"/>
+        <result property="szb_01_GDS_booker_last_name" column="szb_01_GDS_booker_last_name"/>
+        <result property="szb_01_GDS_booker_email" column="szb_01_GDS_booker_email"/>
+        <result property="szb_01_GDS_booker_country_code" column="szb_01_GDS_booker_country_code"/>
+        <result property="szb_01_GDS_booker_contact" column="szb_01_GDS_booker_contact"/>
+        <result property="szb_01_GDS_driver_name" column="szb_01_GDS_driver_name"/>
+        <result property="szb_01_GDS_driver_first_name" column="szb_01_GDS_driver_first_name"/>
+        <result property="szb_01_GDS_driver_mid_name" column="szb_01_GDS_driver_mid_name"/>
+        <result property="szb_01_GDS_driver_last_name" column="szb_01_GDS_driver_last_name"/>
+        <result property="szb_01_GDS_driver_country_code" column="szb_01_GDS_driver_country_code"/>
+        <result property="szb_01_GDS_driver_contact" column="szb_01_GDS_driver_contact"/>
+        <result property="szb_01_GDS_driver_email" column="szb_01_GDS_driver_email"/>
+        <result property="szb_01_GDS_driver_birth" column="szb_01_GDS_driver_birth"/>
+        <result property="szb_01_GDS_paid_amount" column="szb_01_GDS_paid_amount"/>
+        <result property="szb_01_GDS_unpaid_amount" column="szb_01_GDS_unpaid_amount"/>
+        <result property="szb_01_GDS_data_source_json" column="szb_01_GDS_data_source_json"/>
     </resultMap>
 
     <select id="findLatestBookings" resultMap="zzimcarBookingResultMap">
@@ -70,7 +113,7 @@
         SELECT count( szb_01_pk ) FROM mobility_2024.settlement_01_zzimcar_booking
     </select>
 
-    <select id="findBookings" parameterType="map" resultType="com.sample_01.sample_01.model.ZzimcarBooking">
+    <select id="findBookings" parameterType="com.sample_01.sample_01.dto.PageRequestDto" resultMap="zzimcarBookingResultMap">
         SELECT
             szb_01_pk
              ,szb_01_GDS_booking_pid
